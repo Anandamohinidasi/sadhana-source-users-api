@@ -1,5 +1,5 @@
 import { Model } from 'mongoose';
-import { CreateUserDTO } from '../model/dto/createUserDTO';
+import { CreateUserDTO } from '../model/interfaces/createUserInterface';
 
 export class UsersService {
   private users: Model<any>;

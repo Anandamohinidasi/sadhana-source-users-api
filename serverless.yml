@@ -36,3 +36,9 @@ functions:
       - http:
           path: users
           method: put
+  listPermissions:
+    handler: app/handler.listPermissions
+    events:
+      - http:
+          path: users/permissions
+          method: get

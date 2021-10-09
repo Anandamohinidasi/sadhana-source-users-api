@@ -2,7 +2,7 @@ import { Context } from 'aws-lambda';
 import { Model } from 'mongoose';
 import { MessageUtil } from '../utils/message';
 import { UsersService } from '../service/users';
-import { CreateUserDTO } from '../model/dto/createUserDTO';
+import { CreateUserDTO } from '../model/interfaces/createUserInterface';
 
 export class UsersController extends UsersService {
   constructor (users: Model<any>) {
