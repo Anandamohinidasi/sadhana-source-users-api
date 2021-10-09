@@ -8,6 +8,22 @@ export class UsersService {
   }
 
   /**
+   * List users
+   * @param params
+   */
+   protected async listUser (): Promise<object> {
+    try {
+      const result = await this.users.find({});
+
+      return result;
+    } catch (err) {
+      console.error(err);
+
+      throw err;
+    }
+  }
+
+  /**
    * Create user
    * @param params
    */

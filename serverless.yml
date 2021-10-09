@@ -18,6 +18,12 @@ package:
     - config/.env.dev
 
 functions:
+  list:
+    handler: app/handler.list
+    events:
+      - http:
+          path: users
+          method: get
   create:
     handler: app/handler.create
     events:

@@ -11,6 +11,10 @@ import { users } from './model';
 import { UsersController } from './controller/users';
 const usersController = new UsersController(users);
 
+export const list: Handler = (context: Context) => {
+  return usersController.list(context);
+};
+
 export const create: Handler = (event: any, context: Context) => {
   return usersController.create(event, context);
 };

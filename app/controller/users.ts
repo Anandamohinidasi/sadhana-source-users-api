@@ -10,6 +10,24 @@ export class UsersController extends UsersService {
   }
 
   /**
+   * List users
+   * @param {*} event
+   */
+   async list (context?: Context) {
+    console.log('functionName', context.functionName);
+
+    try {
+      const result = await this.listUser();
+
+      return MessageUtil.success(result);
+    } catch (err) {
+      console.error(err);
+
+      return MessageUtil.error(err.code, err.message);
+    }
+  }
+
+  /**
    * Create user
    * @param {*} event
    */
