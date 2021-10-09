@@ -1,4 +1,4 @@
-service: sadhanaSource
+service: sadhanaSourceUsers
 
 provider:
   name: aws
@@ -22,30 +22,11 @@ functions:
     handler: app/handler.create
     events:
       - http:
-          path: books
+          path: users
           method: post
   update:
     handler: app/handler.update
     events:
       - http:
-          path: books/{id}
+          path: users
           method: put
-  find:
-    handler: app/handler.find
-    events:
-      - http:
-          path: books
-          method: get
-  findOne:
-    handler: app/handler.findOne
-    events:
-      - http:
-          path: books/{id}
-          method: get
-
-  deleteOne:
-    handler: app/handler.deleteOne
-    events:
-      - http:
-          path: books/{id}
-          method: delete

@@ -7,20 +7,14 @@ dotenv.config({
   path: dotenvPath,
 });
 
-import { books } from './model';
-import { BooksController } from './controller/books';
-const booksController = new BooksController(books);
+import { users } from './model';
+import { UsersController } from './controller/users';
+const usersController = new UsersController(users);
 
 export const create: Handler = (event: any, context: Context) => {
-  return booksController.create(event, context);
+  return usersController.create(event, context);
 };
 
-export const update: Handler = (event: any) => booksController.update(event);
-
-export const find: Handler = () => booksController.find();
-
-export const findOne: Handler = (event: any, context: Context) => {
-  return booksController.findOne(event, context);
+export const update: Handler = (event: any, context: Context) => {
+  return usersController.update(event, context);
 };
-
-export const deleteOne: Handler = (event: any) => booksController.deleteOne(event);

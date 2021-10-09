@@ -17,9 +17,6 @@ class Result {
     this.data = data;
   }
 
-  /**
-   * Serverless: According to the API Gateway specs, the body content must be stringified
-   */
   bodyToString () {
     return {
       statusCode: this.statusCode,
