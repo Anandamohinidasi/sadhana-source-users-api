@@ -1,0 +1,28 @@
+# package directories
+node_modules
+jspm_packages
+
+# Serverless directories
+.serverless
+
+.build
+
+.nyc_output
+
+coverage
+
+package-lock.json
+
+out-logger.json
+
+.DS_Store
+
+# Env for variable protection
+.env
+
+config/
+
+.env.dev
+.env.pro
+.env.stg
+deploy.sh
