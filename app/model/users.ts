@@ -15,7 +15,7 @@ export type UsersDocument = mongoose.Document & {
 const usersSchema = new mongoose.Schema({
   name: String,
   document: String,
-  email: String,
+  email: {type: String, unique: true},
   spiritualName: String,
   password: String,
   guru: String,
