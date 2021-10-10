@@ -1,8 +1,9 @@
 import { Context } from 'aws-lambda';
 import { Model } from 'mongoose';
-import { MessageUtil } from '../utils/message';
+import { MessageUtil } from '../helpers/message';
 import { UsersService } from '../service/users';
 import { CreateUserDTO } from '../model/interfaces/createUserInterface';
+import { encodeSession } from '../helpers/autorization/autorizationHelper';
 
 export class UsersController extends UsersService {
   constructor (users: Model<any>) {
@@ -76,4 +77,30 @@ export class UsersController extends UsersService {
       return MessageUtil.error(err.code, err.message);
     }
   }
+
+    /**
+   * Authenticate user
+   * @param {*} event
+   */
+     async authenticate (event: any, context?: Context) {
+      console.log('functionName', context.functionName);
+      const {email, password}: any = JSON.parse(event.body);
+  
+      try {
+        const {_id, name, permissions = []}: CreateUserDTO = await this.authenticateUser({
+          email,
+          password
+        });
+  
+        return MessageUtil.success(encodeSession(process.env.JWT_SECRET_KEY, {
+          id: _id,
+          permissions,
+          name
+        }));
+      } catch (err) {
+        console.error(err);
+  
+        return MessageUtil.error(err.code, err.message);
+      }
+    }
 }

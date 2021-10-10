@@ -1,6 +1,6 @@
 import { Context } from 'aws-lambda';
 import { Model } from 'mongoose';
-import { MessageUtil } from '../utils/message';
+import { MessageUtil } from '../helpers/message';
 import { PermissionsService } from '../service/permissions';
 
 export class PermissionsController extends PermissionsService {

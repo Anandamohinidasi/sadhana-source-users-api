@@ -36,6 +36,12 @@ functions:
       - http:
           path: users
           method: put
+  authenticate:
+    handler: app/handler.authenticate
+    events:
+      - http:
+          path: users/login
+          method: post
   listPermissions:
     handler: app/handler.listPermissions
     events:

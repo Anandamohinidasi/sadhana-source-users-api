@@ -26,6 +26,10 @@ export const update: Handler = (event: any, context: Context) => {
   return usersController.update(event, context);
 };
 
+export const authenticate: Handler = (event: any, context: Context) => {
+  return usersController.authenticate(event, context);
+}
+
 export const listPermissions: Handler = (context: Context) => {
   return permissionsController.list(context);
 }

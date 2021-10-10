@@ -1,5 +1,6 @@
 import { Model } from 'mongoose';
 import { CreateUserDTO } from '../model/interfaces/createUserInterface';
+import * as bcrypt from 'bcrypt';
 
 export class UsersService {
   private users: Model<any>;
@@ -61,6 +62,29 @@ export class UsersService {
           });
   
         return result;
+      } catch (err) {
+        console.error(err);
+  
+        throw err;
+      }
+    }
+
+   /**
+   * Update user
+   * @param params
+   */
+     protected async authenticateUser ({email, password}: any): Promise<CreateUserDTO> {
+      try {
+        const result = await this.users.find({
+          email
+        });
+        const passwordMatches = await bcrypt.compare(password, result[0].password);
+
+        if(!passwordMatches) {
+          throw new Error('Invalid credentails combination')
+        }
+  
+        return result[0];
       } catch (err) {
         console.error(err);
   

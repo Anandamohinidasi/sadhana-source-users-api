@@ -24,10 +24,10 @@ const usersSchema = new mongoose.Schema({
 });
 
 usersSchema.pre("save", async function(next) {
-const user: any = this;
-if(user.isModified("password")) {
-  user.password = await bcrypt.hash(user.password, 8);
-}
+  const user: any = this;
+  if(user.isModified("password")) {
+    user.password = await bcrypt.hash(user.password, 8);
+  }
   next();
 })
 

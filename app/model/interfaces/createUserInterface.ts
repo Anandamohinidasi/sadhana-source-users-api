@@ -1,4 +1,5 @@
 export interface CreateUserDTO {
+    _id?: string
     name: string
     document: string
     email: string
