@@ -33,12 +33,13 @@ export class UsersController extends UsersService {
    */
   async create (event: any, context?: Context) {
     console.log('functionName', context.functionName);
-    const {name, document, email, spiritualName, guru, permissions}: CreateUserDTO = JSON.parse(event.body);
+    const {name, document, email, spiritualName, guru, permissions, password}: CreateUserDTO = JSON.parse(event.body);
 
     try {
       const result = await this.createUser({
         name,
         document,
+        password,
         email,
         spiritualName,
         guru,

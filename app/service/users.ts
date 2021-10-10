@@ -27,12 +27,13 @@ export class UsersService {
    * Create user
    * @param params
    */
-  protected async createUser ({name, document, email, spiritualName, guru, permissions}: CreateUserDTO): Promise<object> {
+  protected async createUser ({name, document, email, spiritualName, guru, permissions, password}: CreateUserDTO): Promise<object> {
     try {
       const result = await this.users.create({
         name,
         document,
         email,
+        password,
         spiritualName,
         guru,
         permissions
