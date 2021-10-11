@@ -75,16 +75,20 @@ export class UsersService {
    */
      protected async authenticateUser ({email, password}: any): Promise<CreateUserDTO> {
       try {
-        const result = await this.users.find({
+        const [result] = await this.users.find({
           email
         });
-        const passwordMatches = await bcrypt.compare(password, result[0].password);
+        const passwordMatches = await bcrypt.compare(password, result.password);
 
         if(!passwordMatches) {
           throw new Error('Invalid credentails combination')
         }
+
+        if(result.status_id === '61612b0d6fa4d7ac743be63c') {
+          throw new Error('User account not verified')
+        }
   
-        return result[0];
+        return result;
       } catch (err) {
         console.error(err);
   
