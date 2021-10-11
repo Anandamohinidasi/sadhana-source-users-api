@@ -2,7 +2,7 @@
   "name": "sadhana-source-users-api",
   "author": "Ananda Rodrigues (ananda.mohini.dasi@hotmail.com)",
   "version": "0.0.0",
-  "description": "REST API for AWS Lambda using Serverless framwork and TypeScript and MongoDB Atlas.",
+  "description": "REST API for AWS Lambda using Serverless framwork and TypeScript and MongoDB Atlas. ",
   "main": "index.js",
   "scripts": {
     "lint": "eslint",
