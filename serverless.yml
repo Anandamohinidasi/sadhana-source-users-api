@@ -11,13 +11,6 @@ plugins:
   - serverless-plugin-typescript 
   - serverless-offline
 
-package:
-  exclude:
-    - config/.env.stg
-    - config/.env.pro
-  include:
-    - config/.env.dev
-
 functions:
   list:
     handler: app/handler.list
