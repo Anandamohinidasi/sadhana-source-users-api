@@ -1,7 +1,7 @@
 name: Deploy Develop
 on:
   push:
-    branches: [ develop ]
+    branches: [ main ]
 jobs:
   deploy:
     runs-on: ubuntu-latest
